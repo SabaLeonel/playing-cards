@@ -1,6 +1,4 @@
-<app-search-bar
-  (submit)="increaseCount()"
-  [(search)]="search"
-/>
-Search: {{ search }} <br />
-Click Count: {{ count }}
+<button (click)="toggleMonster()">Toggle Pokémon</button>
+<div id="card-list">
+  <app-playing-card [monster]="monsters[selectedMonsterIndex]" />
+</div>
