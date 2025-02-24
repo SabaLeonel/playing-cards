@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { PlayingCardComponent } from "./components/playing-card/playing-card.component";
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { Monster } from './models/monster.model';
 import { MonsterType } from './utils/monster.utils';
 
@@ -8,7 +7,6 @@ import { MonsterType } from './utils/monster.utils';
   selector: 'app-root',
   standalone: true,
   imports: [
-    SearchBarComponent,
     PlayingCardComponent
   ],
   templateUrl: './app.component.html',
