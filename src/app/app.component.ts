@@ -38,6 +38,7 @@ export class AppComponent {
 
     const monster3 = new Monster();
     monster3.name = "Squirtle";
+    monster3.type = MonsterType.WATER;
     monster3.hp = 30;
     monster3.figureCaption = "N°003 Squirtle";
 

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Monster } from '../../models/monster.model';
+import { MonsterTypeProperties } from '../../utils/monster.utils';
 
 
 @Component({
@@ -9,9 +10,18 @@ import { Monster } from '../../models/monster.model';
   templateUrl: './playing-card.component.html',
   styleUrl: './playing-card.component.css'
 })
-export class PlayingCardComponent {
+export class PlayingCardComponent implements OnChanges {
 
   @Input() monster = new Monster();
-  monsterTypeIcon: string = "assets/img/fire.png";
+  monsterTypeIcon: string = "assets/img/electric.png";
   backgroundColor: string = "rgba(255, 255, 104)";
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['monster']) {
+      if (changes['monster'].previousValue?.type !== changes['monster'].currentValue.type) {
+        this.monsterTypeIcon = MonsterTypeProperties[this.monster.type].imageUrl;
+        this.backgroundColor = MonsterTypeProperties[this.monster.type].color;
+      }
+    }
+  }
 }
